@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Hero Video with TailwindCSS</title>
+    <!-- Incluye Tailwind CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <!-- Incluye Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+           
+        }
+
+        .video-docker {
+            position: relative;
+            width: 100%;
+            height: 50vh; /* Cambiado a 40% de la altura de la pantalla */
+            overflow: hidden;
+        }
+
+        .video-docker video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: auto;
+            height: 100%;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+        }
+
+        .video-docker::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .video-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 40vh; /* Mismo tamaño que el contenedor de video */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            color: #f7fafc; /* Color blanco para buen contraste */
+        }
+
+        @keyframes typing {
+            0% { width: 0%; visibility: hidden; }
+            50% { visibility: visible; }
+            100% { width: 35%; }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+            100% { border-color: white; }
+        }
+
+        .animate-typing {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 4px solid white;
+            animation: typing 4s steps(30, end) infinite alternate, blink .75s step-end infinite;
+        }
+        .image-container {
+            width: 500px;
+            height: 300px;
+        }
+
+        .image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <section class="relative flex flex-col items-center justify-start text-center text-white">
+        <div class="video-docker">
+            <video class="absolute object-cover"
+                src="https://cdn.pixabay.com/video/2018/09/15/18244-290348856_large.mp4"
+                type="video/mp4" autoplay muted loop></video>
+        </div>
+        <div class="video-content space-y-2 z-10">
+            <h1 class="font-light text-6xl">AVEPEDIA</h1>
+            <h3 class="font-light text-3xl animate-typing">"Descubre, aprende y protege."</h3>
+        </div>
+    </section>
+
+    <section class="text-gray py-12 px-4">
+        <h2 class="text-2xl font-bold text-center">Proyecto AVEPEDIA</h2>
+        <hr class="my-4 w-1/2 border-2 mx-auto border-gray-300 mt-2">
+        <p class="mt-4 text-center max-w-2xl mx-auto">
+            AVEPEDIA es un emocionante proyecto desarrollado como parte de la materia de Programación Lógica y Funcional. Esta plataforma innovadora implementa diversos paradigmas de programación para ofrecer una experiencia única. AVEPEDIA no solo es una enciclopedia de aves, sino también un laboratorio de aprendizaje donde los estudiantes exploran conceptos clave de la programación mientras descubren el fascinante mundo de las aves. Desde la lógica de programación hasta la funcionalidad avanzada, AVEPEDIA es una combinación perfecta de educación y pasión por la naturaleza.
+        </p>
+    </section>
+    
+
+    <!-- source https://github.com/spacemadev/elevate-free-tailwind-business-template/ -->
+<section id="our-team" class="bg-gray-100 py-32">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-8 text-primary">Equipo de Desarrollo</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Team Member 1 -->
+            <div class="bg-white rounded-lg shadow-md p-6 my-6 text-center">
+                <img src="imagenes/josue.jpeg" alt="Team Member 1" class="w-full rounded-full mb-4">
+                <h3 class="text-xl font-semibold mb-2">Josue Longoria</h3>
+                <p class="text-gray-700">Desarrollador front-end</p>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="bg-white rounded-lg shadow-md p-6 my-6 text-center">
+                <img src="imagenes/fabrizio.jpeg" alt="Team Member 2" class="w-full w-[350px] h-[350px]  rounded-full mb-4">
+                <h3 class="text-xl font-semibold mb-2">Fabrizio Marquez</h3>
+                <p class="text-gray-700">Consultor prolog</p>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="bg-white rounded-lg shadow-md p-6 my-6 text-center">
+                <img src="imagenes/ulices.jpeg" alt="Team Member 3" class="w-full rounded-full mb-4">
+                <h3 class="text-xl font-semibold mb-2">Ulices Vera</h3>
+                <p class="text-gray-700">Analista de Proyecto</p>
+            </div>
+
+            <!-- Team Member 4 -->
+            <div class="bg-white rounded-lg shadow-md p-6 my-6 text-center">
+                <img src="imagenes/esau.jpeg" alt="Team Member 4" class="w-full rounded-full mb-4">
+                <h3 class="text-xl font-semibold mb-2">Esau Vazquez</h3>
+                <p class="text-gray-700">Desarrollador Back-ends</p>
+            </div>
+
+            <!-- Team Member 5 -->
+            
+        </div>
+    </div>
+</section>
+<!-- desde aquiii 5 -->
+<div id="aveContainer" class="container mx-auto px-4 py-8 max-w-screen-lg">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Tarjeta de ave (Quetzal) -->
+        <div class="card border border-gray-300 rounded-lg overflow-hidden bg-white shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105" id="quetzal">
+            <img src="https://www.vhv.rs/dpng/d/573-5737137_quetzal-png-free-quetzal-transparent-images-imagenes-del.png" alt="Quetzal" class="w-full h-40 object-cover rounded-t-lg">
+            <div class="info p-4">
+                <h3 class="text-xl font-semibold mb-2">Quetzal</h3>
+                <p class="text-gray-700">Ave de colores brillantes y cola larga, símbolo de la selva tropical.</p>
+                <button class="more-info mt-4 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">Más información</button>
+                <div class="additional-info hidden mt-4">
+                    <h4 class="text-lg font-semibold mb-2">Información adicional</h4>
+                    <ul>
+                        <li><strong>Tamaño:</strong> <span class="size"></span></li>
+                        <li><strong>Hábitat:</strong> <span class="habitat"></span></li>
+                        <li><strong>Población:</strong> <span class="population"></span></li>
+                        <li><strong>Alimentación:</strong> <span class="diet"></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Tarjeta de ave (Colibrí) -->
+        <div class="card border border-gray-300 rounded-lg overflow-hidden bg-white shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105" id="colibri">
+            <img src="https://e7.pngegg.com/pngimages/998/155/png-clipart-hummingbird-mexican-violetear-motion-jpeg-humming-bird-animals-fauna-thumbnail.png" alt="Colibri" class="w-full h-40 object-cover rounded-t-lg">
+            <div class="info p-4">
+                <h3 class="text-xl font-semibold mb-2">Colibri</h3>
+                <p class="text-gray-700">Pequeño pájaro con capacidad de vuelo estacionario y plumaje iridiscente</p>
+                <button class="more-info mt-4 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">Más información</button>
+                <div class="additional-info hidden mt-4">
+                    <h4 class="text-lg font-semibold mb-2">Información adicional</h4>
+                    <ul>
+                        <li><strong>Tamaño:</strong> <span class="size"></span></li>
+                        <li><strong>Hábitat:</strong> <span class="habitat"></span></li>
+                        <li><strong>Población:</strong> <span class="population"></span></li>
+                        <li><strong>Alimentación:</strong> <span class="diet"></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Tarjeta de ave (Aguila Real) -->
+        <div class="card border border-gray-300 rounded-lg overflow-hidden bg-white shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105" id="aguila_real">
+            <img src="https://png.pngtree.com/png-clipart/20240211/original/pngtree-golden-eagle-isolated-on-white-png-image_14289934.png" alt="Aguila Real" class="w-full h-40 object-cover rounded-t-lg">
+            <div class="info p-4">
+                <h3 class="text-xl font-semibold mb-2">Aguila Real</h3>
+                <p class="text-gray-700">Majestuoso rapaz de gran tamaño y plumaje oscuro.</p>
+                <button class="more-info mt-4 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">Más información</button>
+                <div class="additional-info hidden mt-4">
+                    <h4 class="text-lg font-semibold mb-2">Información adicional</h4>
+                    <ul>
+                        <li><strong>Tamaño:</strong> <span class="size"></span></li>
+                        <li><strong>Hábitat:</strong> <span class="habitat"></span></li>
+                        <li><strong>Población:</strong> <span class="population"></span></li>
+                        <li><strong>Alimentación:</strong> <span class="diet"></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Tarjeta de ave (Quetzal) -->
+        <div class="card border border-gray-300 rounded-lg overflow-hidden bg-white shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105" id="guacamaya_roja">
+            <img src="https://png.pngtree.com/png-clipart/20230504/original/pngtree-isolated-scarlet-macaw-parrot-flying-on-transparent-png-image_9140651.png" alt="Quetzal" class="w-full h-40 object-cover rounded-t-lg">
+            <div class="info p-4">
+                <h3 class="text-xl font-semibold mb-2">guacamaya roja</h3>
+                <p class="text-gray-700">Ejemplo de descripción del Quetzal.</p>
+                <button class="more-info mt-4 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">Más información</button>
+                <div class="additional-info hidden mt-4">
+                    <h4 class="text-lg font-semibold mb-2">Información adicional</h4>
+                    <ul>
+                        <li><strong>Tamaño:</strong> <span class="size"></span></li>
+                        <li><strong>Hábitat:</strong> <span class="habitat"></span></li>
+                        <li><strong>Población:</strong> <span class="population"></span></li>
+                        <li><strong>Alimentación:</strong> <span class="diet"></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Tarjeta de ave (Colibrí) -->
+        <div class="card border border-gray-300 rounded-lg overflow-hidden bg-white shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105" id="tucan">
+            <img src="https://cdn.pixabay.com/photo/2020/10/11/08/26/toucan-5645110_1280.png" alt="Colibrí" class="w-full h-40 object-cover rounded-t-lg">
+            <div class="info p-4">
+                <h3 class="text-xl font-semibold mb-2">tucan</h3>
+                <p class="text-gray-700">Ejemplo de descripción del Colibrí.</p>
+                <button class="more-info mt-4 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">Más información</button>
+                <div class="additional-info hidden mt-4">
+                    <h4 class="text-lg font-semibold mb-2">Información adicional</h4>
+                    <ul>
+                        <li><strong>Tamaño:</strong> <span class="size"></span></li>
+                        <li><strong>Hábitat:</strong> <span class="habitat"></span></li>
+                        <li><strong>Población:</strong> <span class="population"></span></li>
+                        <li><strong>Alimentación:</strong> <span class="diet"></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Agregar más tarjetas de aves aquí -->
+        <div class="card border border-gray-300 rounded-lg overflow-hidden bg-white shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105" id="halcon_peregrino">
+            <img src="https://avespampa.com.ar/wp-content/uploads/Falconidae/Halcon_Peregrino/Halcon_Peregrino_hembra1.jpg">
+            <div class="info p-4">
+                <h3 class="text-xl font-semibold mb-2">halcon peregrino</h3>
+                <p class="text-gray-700">Ejemplo de descripción del Quetzal.</p>
+                <button class="more-info mt-4 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">Más información</button>
+                <div class="additional-info hidden mt-4">
+                    <h4 class="text-lg font-semibold mb-2">Información adicional</h4>
+                    <ul>
+                        <li><strong>Tamaño:</strong> <span class="size"></span></li>
+                        <li><strong>Hábitat:</strong> <span class="habitat"></span></li>
+                        <li><strong>Población:</strong> <span class="population"></span></li>
+                        <li><strong>Alimentación:</strong> <span class="diet"></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="aveContainer" class="container mx-auto px-4 py-8 max-w-screen-lg">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Tarjeta de ave (Quetzal) -->
+        <div class="card border border-gray-300 rounded-lg overflow-hidden bg-white shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105" id="quetzal">
+            <img src="https://www.vhv.rs/dpng/d/573-5737137_quetzal-png-free-quetzal-transparent-images-imagenes-del.png" alt="Quetzal" class="w-full h-40 object-cover rounded-t-lg">
+            <div class="info p-4">
+                <h3 class="text-xl font-semibold mb-2">Quetzal</h3>
+                <p class="text-gray-700">Ejemplo de descripción del Quetzal.</p>
+                <button class="more-info mt-4 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">Más información</button>
+                <div class="additional-info hidden mt-4">
+                    <h4 class="text-lg font-semibold mb-2">Información adicional</h4>
+                    <ul>
+                        <li><strong>Tamaño:</strong> <span class="size"></span></li>
+                        <li><strong>Hábitat:</strong> <span class="habitat"></span></li>
+                        <li><strong>Población:</strong> <span class="population"></span></li>
+                        <li><strong>Alimentación:</strong> <span class="diet"></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Tarjeta de ave (Colibrí) -->
+        <div class="card border border-gray-300 rounded-lg overflow-hidden bg-white shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105" id="huilotl">
+            <img src="https://via.placeholder.com/300x200.png" alt="Colibrí" class="w-full h-40 object-cover rounded-t-lg">
+            <div class="info p-4">
+                <h3 class="text-xl font-semibold mb-2">huilotl</h3>
+                <p class="text-gray-700">Ejemplo de descripción del Colibrí.</p>
+                <button class="more-info mt-4 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">Más información</button>
+                <div class="additional-info hidden mt-4">
+                    <h4 class="text-lg font-semibold mb-2">Información adicional</h4>
+                    <ul>
+                        <li><strong>Tamaño:</strong> <span class="size"></span></li>
+                        <li><strong>Hábitat:</strong> <span class="habitat"></span></li>
+                        <li><strong>Población:</strong> <span class="population"></span></li>
+                        <li><strong>Alimentación:</strong> <span class="diet"></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Agregar más tarjetas de aves aquí -->
+        <div class="card border border-gray-300 rounded-lg overflow-hidden bg-white shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105" id="aguililla_cafe">
+            <img src="https://www.vhv.rs/dpng/d/573-5737137_quetzal-png-free-quetzal-transparent-images-imagenes-del.png" alt="aguila Real" class="w-full h-40 object-cover rounded-t-lg">
+            <div class="info p-4">
+                <h3 class="text-xl font-semibold mb-2">aguililla_cafe</h3>
+                <p class="text-gray-700">Ejemplo de descripción del Quetzal.</p>
+                <button class="more-info mt-4 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">Más información</button>
+                <div class="additional-info hidden mt-4">
+                    <h4 class="text-lg font-semibold mb-2">Información adicional</h4>
+                    <ul>
+                        <li><strong>Tamaño:</strong> <span class="size"></span></li>
+                        <li><strong>Hábitat:</strong> <span class="habitat"></span></li>
+                        <li><strong>Población:</strong> <span class="population"></span></li>
+                        <li><strong>Alimentación:</strong> <span class="diet"></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="aveContainer" class="container mx-auto px-4 py-8 max-w-screen-lg">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Tarjeta de ave (Quetzal) -->
+        <div class="card border border-gray-300 rounded-lg overflow-hidden bg-white shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105" id="quetzal">
+            <img src="https://www.vhv.rs/dpng/d/573-5737137_quetzal-png-free-quetzal-transparent-images-imagenes-del.png" alt="Quetzal" class="w-full h-40 object-cover rounded-t-lg">
+            <div class="info p-4">
+                <h3 class="text-xl font-semibold mb-2">Quetzal</h3>
+                <p class="text-gray-700">Ejemplo de descripción del Quetzal.</p>
+                <button class="more-info mt-4 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">Más información</button>
+                <div class="additional-info hidden mt-4">
+                    <h4 class="text-lg font-semibold mb-2">Información adicional</h4>
+                    <ul>
+                        <li><strong>Tamaño:</strong> <span class="size"></span></li>
+                        <li><strong>Hábitat:</strong> <span class="habitat"></span></li>
+                        <li><strong>Población:</strong> <span class="population"></span></li>
+                        <li><strong>Alimentación:</strong> <span class="diet"></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Tarjeta de ave (Colibrí) -->
+        <div class="card border border-gray-300 rounded-lg overflow-hidden bg-white shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105" id="huilotl">
+            <img src="https://via.placeholder.com/300x200.png" alt="Colibrí" class="w-full h-40 object-cover rounded-t-lg">
+            <div class="info p-4">
+                <h3 class="text-xl font-semibold mb-2">huilotl</h3>
+                <p class="text-gray-700">Ejemplo de descripción del Colibrí.</p>
+                <button class="more-info mt-4 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">Más información</button>
+                <div class="additional-info hidden mt-4">
+                    <h4 class="text-lg font-semibold mb-2">Información adicional</h4>
+                    <ul>
+                        <li><strong>Tamaño:</strong> <span class="size"></span></li>
+                        <li><strong>Hábitat:</strong> <span class="habitat"></span></li>
+                        <li><strong>Población:</strong> <span class="population"></span></li>
+                        <li><strong>Alimentación:</strong> <span class="diet"></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Agregar más tarjetas de aves aquí -->
+        <div class="card border border-gray-300 rounded-lg overflow-hidden bg-white shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105" id="aguililla_cafe">
+            <img src="https://www.vhv.rs/dpng/d/573-5737137_quetzal-png-free-quetzal-transparent-images-imagenes-del.png" alt="aguila Real" class="w-full h-40 object-cover rounded-t-lg">
+            <div class="info p-4">
+                <h3 class="text-xl font-semibold mb-2">aguililla_cafe</h3>
+                <p class="text-gray-700">Ejemplo de descripción del Quetzal.</p>
+                <button class="more-info mt-4 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">Más información</button>
+                <div class="additional-info hidden mt-4">
+                    <h4 class="text-lg font-semibold mb-2">Información adicional</h4>
+                    <ul>
+                        <li><strong>Tamaño:</strong> <span class="size"></span></li>
+                        <li><strong>Hábitat:</strong> <span class="habitat"></span></li>
+                        <li><strong>Población:</strong> <span class="population"></span></li>
+                        <li><strong>Alimentación:</strong> <span class="diet"></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="aveContainer" class="container mx-auto px-4 py-8 max-w-screen-lg">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Tarjeta de ave (Quetzal) -->
+        <div class="card border border-gray-300 rounded-lg overflow-hidden bg-white shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105" id="quetzal">
+            <img src="https://www.vhv.rs/dpng/d/573-5737137_quetzal-png-free-quetzal-transparent-images-imagenes-del.png" alt="Quetzal" class="w-full h-40 object-cover rounded-t-lg">
+            <div class="info p-4">
+                <h3 class="text-xl font-semibold mb-2">Quetzal</h3>
+                <p class="text-gray-700">Ejemplo de descripción del Quetzal.</p>
+                <button class="more-info mt-4 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">Más información</button>
+                <div class="additional-info hidden mt-4">
+                    <h4 class="text-lg font-semibold mb-2">Información adicional</h4>
+                    <ul>
+                        <li><strong>Tamaño:</strong> <span class="size"></span></li>
+                        <li><strong>Hábitat:</strong> <span class="habitat"></span></li>
+                        <li><strong>Población:</strong> <span class="population"></span></li>
+                        <li><strong>Alimentación:</strong> <span class="diet"></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Tarjeta de ave (Colibrí) -->
+        <div class="card border border-gray-300 rounded-lg overflow-hidden bg-white shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105" id="huilotl">
+            <img src="https://via.placeholder.com/300x200.png" alt="Colibrí" class="w-full h-40 object-cover rounded-t-lg">
+            <div class="info p-4">
+                <h3 class="text-xl font-semibold mb-2">huilotl</h3>
+                <p class="text-gray-700">Ejemplo de descripción del Colibrí.</p>
+                <button class="more-info mt-4 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">Más información</button>
+                <div class="additional-info hidden mt-4">
+                    <h4 class="text-lg font-semibold mb-2">Información adicional</h4>
+                    <ul>
+                        <li><strong>Tamaño:</strong> <span class="size"></span></li>
+                        <li><strong>Hábitat:</strong> <span class="habitat"></span></li>
+                        <li><strong>Población:</strong> <span class="population"></span></li>
+                        <li><strong>Alimentación:</strong> <span class="diet"></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Agregar más tarjetas de aves aquí -->
+        <div class="card border border-gray-300 rounded-lg overflow-hidden bg-white shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105" id="aguililla_cafe">
+            <img src="https://www.vhv.rs/dpng/d/573-5737137_quetzal-png-free-quetzal-transparent-images-imagenes-del.png" alt="aguila Real" class="w-full h-40 object-cover rounded-t-lg">
+            <div class="info p-4">
+                <h3 class="text-xl font-semibold mb-2">aguililla_cafe</h3>
+                <p class="text-gray-700">Ejemplo de descripción del Quetzal.</p>
+                <button class="more-info mt-4 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">Más información</button>
+                <div class="additional-info hidden mt-4">
+                    <h4 class="text-lg font-semibold mb-2">Información adicional</h4>
+                    <ul>
+                        <li><strong>Tamaño:</strong> <span class="size"></span></li>
+                        <li><strong>Hábitat:</strong> <span class="habitat"></span></li>
+                        <li><strong>Población:</strong> <span class="population"></span></li>
+                        <li><strong>Alimentación:</strong> <span class="diet"></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-md mx-auto bg-white rounded-lg overflow-hidden shadow-md">
+            <div class="p-4">
+                <h2 class="text-xl font-semibold mb-4">Aves en Peligro de Extinción</h2>
+                <div class="flex items-center mb-4">
+                    <label for="birdSelect" class="mr-2">Selecciona un ave:</label>
+                    <select id="birdSelect" class="rounded-md border-gray-300 focus:border-purple-500 focus:ring focus:ring-purple-200 focus:ring-opacity-50">
+                        <option value="">Selecciona una opción</option>
+                        <option value="aguila_real">Águila Real</option>
+                        <option value="quetzal">Quetzal</option>
+                        <option value="colibri">Colibrí</option>
+                        <option value="guacamaya_roja">Guacamaya Roja</option>
+                        <option value="tucan">Tucán</option>
+                        <option value="halcon_peregrino">Halcón Peregrino</option>
+                        <option value="pavo_ocelado">Pavo Ocelado</option>
+                        <option value="cotorra_azteca">Cotorra Azteca</option>
+                        <option value="caracara_quirquincho">Caracara Quirquincho</option>
+                        <option value="chachalaca">Chachalaca</option>
+                        <option value="gorrion_montesino">Gorrion Montesino</option>
+                        <option value="tortola_alisera">Tórtola Alisera</option>
+                        <option value="tordo_ojirrojo">Tordo Ojirrojo</option>
+                        <option value="ocellated_quail">Ocellated Quail</option>
+                        <option value="puerto_rico_screech_owl">Puerto Rico Screech Owl</option>
+                        <option value="sinaloa_martin">Sinaloa Martin</option>
+                        <option value="coa">Coa</option>
+                        <option value="talancate">Talancate</option>
+                        <option value="pato_cuchara">Pato Cuchara</option>
+                        <option value="gallina_de_guinea">Gallina de Guinea</option>
+                    </select>
+                </div>
+                <button id="checkEndangered" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+                    Verificar Estado
+                </button>
+                <p id="endangeredStatus" class="mt-4 text-gray-700 hidden"></p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-md mx-auto bg-white rounded-lg overflow-hidden shadow-md">
+            <div class="p-4">
+                <h2 class="text-xl font-semibold mb-4">El estado tiene el Habitad?</h2>
+                <div class="mb-4">
+                    <label for="birdSelect" class="mr-2">Selecciona un ave:</label>
+                    <select id="birdSelect" class="rounded-md border-gray-300 focus:border-purple-500 focus:ring focus:ring-purple-200 focus:ring-opacity-50">
+                        <option value="">Selecciona una opción</option>
+                        <option value="aguila_real">Águila Real</option>
+                        <option value="quetzal">Quetzal</option>
+                        <option value="colibri">Colibrí</option>
+                        <option value="guacamaya_roja">Guacamaya Roja</option>
+                        <option value="tucan">Tucán</option>
+                        <option value="halcon_peregrino">Halcón Peregrino</option>
+                        <option value="pavo_ocelado">Pavo Ocelado</option>
+                        <option value="cotorra_azteca">Cotorra Azteca</option>
+                        <option value="caracara_quirquincho">Caracara Quirquincho</option>
+                        <option value="chachalaca">Chachalaca</option>
+                        <option value="gorrion_montesino">Gorrion Montesino</option>
+                        <option value="tortola_alisera">Tórtola Alisera</option>
+                        <option value="tordo_ojirrojo">Tordo Ojirrojo</option>
+                        <option value="ocellated_quail">Ocellated Quail</option>
+                        <option value="puerto_rico_screech_owl">Puerto Rico Screech Owl</option>
+                        <option value="sinaloa_martin">Sinaloa Martin</option>
+                        <option value="coa">Coa</option>
+                        <option value="talancate">Talancate</option>
+                        <option value="pato_cuchara">Pato Cuchara</option>
+                        <option value="gallina_de_guinea">Gallina de Guinea</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="stateSelect" class="mr-2">Selecciona un estado:</label>
+                    <select id="stateSelect" class="rounded-md border-gray-300 focus:border-purple-500 focus:ring focus:ring-purple-200 focus:ring-opacity-50">
+                        <option value="">Selecciona un estado</option>
+                        <option value="veracruz">Veracruz</option>
+                        <option value="yucatan">Yucatán</option>
+                        <option value="oaxaca">Oaxaca</option>
+                        <option value="chiapas">Chiapas</option>
+                        <option value="tabasco">Tabasco</option>
+                        <!-- Agregar más opciones de estados aquí -->
+                    </select>
+                </div>
+                <button id="checkBirdState" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+                    Verificar Estado
+                </button>
+                <p id="birdStateStatus" class="mt-4 text-gray-700 hidden"></p>
+            </div>
+        </div>
+    </div>
+<script src="peligro.js"></script>
+<script src="habitad.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const moreInfoButtons = document.querySelectorAll(".more-info");
+
+        moreInfoButtons.forEach(button => {
+            button.addEventListener("click", async () => {
+                const card = button.closest(".card");
+                const aveName = card.id;
+                const additionalInfo = card.querySelector(".additional-info");
+
+                try {
+                    const response = await fetch(`http://localhost:3000/aves/${aveName}`);
+                    const data = await response.json();
+
+                    const sizeSpan = additionalInfo.querySelector(".size");
+                    const habitatSpan = additionalInfo.querySelector(".habitat");
+                    const populationSpan = additionalInfo.querySelector(".population");
+                    const dietSpan = additionalInfo.querySelector(".diet");
+
+                    sizeSpan.textContent = data.Tamano;
+                    habitatSpan.textContent = data.Habitat;
+                    populationSpan.textContent = data.Poblacion;
+                    dietSpan.textContent = data.Alimentacion;
+
+                    additionalInfo.classList.toggle("hidden"); // Alternar visibilidad de la información adicional
+                } catch (error) {
+                    console.error("Error al obtener la información del ave:", error);
+                }
+            });
+        });
+    });
+</script>
+
+
+</body>
+</html>
